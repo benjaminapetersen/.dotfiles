@@ -1,0 +1,8 @@
+[user]
+  name = Benjamin A. Petersen
+  email = ben@benjaminapetersen.me 
+[github]
+  user = benjaminapetersen
+[core]
+  editor = vim
+  excludesfile = ~/.gitignore_global
