@@ -1,0 +1,12 @@
+
+# Alias
+# -----------------
+# Directory Traversal
+alias ..="cd .."
+alias ...="cd ../.."
+alias ...="cd ../../.."
+alias ....="cd ../../../.."
+alias .....="cd ../../../../.."
+alias ......="cd ../../../../../.."
+alias ~="cd ~"
+#alias --="cd -"
