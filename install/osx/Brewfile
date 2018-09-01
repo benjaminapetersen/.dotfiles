@@ -1,0 +1,92 @@
+# specify a directory to install
+cask_args appdir: '/Applications'
+
+update 
+doctor
+
+# TAPS
+# ----------------------------------
+# tap caskroom/homebrew-cask || true
+tap caskroom/cask
+tap caskroom/fonts
+tap homebrew/bundle
+tap homebrew/core
+tap homebrew/services
+
+# GNU core utils
+install coreutils
+install findutils
+
+# Update bash 
+install bash 
+
+
+# FORMULA
+# ----------------------------------
+# --with-default-names will replace the built-in 
+# BSD versions.  I dislike the UX of BSD
+install gnu-sed --with-default-names
+install gnu-tar --with-default-names
+install gnu-indent --with-default-names
+install gnu-which --with-default-names
+install gnu-grep --with-default-names 
+
+
+install ack
+install ansible
+install bash-completion
+install ffmpeg
+install git
+install golang
+install gzip
+install gpg
+install htop
+install imagemagick
+install jq # json query
+install lynx 
+install mercurial
+install minecraft
+brew mongodb, restart_service: true
+brew mas # handles app store purchase installation
+install node
+install npm
+install python
+install python3
+install pypy
+install the_silver_searcher
+install tmux
+install vim
+install yarn 
+install wget
+install watch 
+
+# re-link python to fix pip 
+unlink python
+link python
+
+
+# CASKS
+# ----------------------------------
+cask adobe-reader
+cask colluquy # irc
+cask divvy
+cask dropbox
+cask evernote
+cask firefox
+cask flux     # redshift at night.  no longer needed?
+cask google-chrome
+cask google-drive
+cask google-hangouts
+cask iterm2
+cask kindle
+cask macvim
+cask skype
+cask simplenote 
+cask slack
+cask spotify
+cask vagrant
+cask virtualbox
+
+# FONTS
+# ----------------------------------
+cask font-roboto-mono
