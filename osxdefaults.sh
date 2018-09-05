@@ -21,8 +21,14 @@ defaults -currentHost write NSGlobalDomain com.apple.mouse.tapBehavior -int 1
 # Disable "natural" scroll
 # defaults write NSGlobalDomain com.apple.swipescrolldirection -bool false
 
-echo "Creating ~/ folder structure..."
+# Set default screenshots folder
+SCREENSHOT_FOLDER="~/Screenshots"
+echo "Setting default screenshot folder to: ${SCREENSHOT_FOLDER}"
+#mkdir -p "${SCREENSHOT_FOLDER}"
+mkdir -p ~/Screenshots
+#defaults write com.apple.screencapture location $SCREENSHOT_FOLDER
+defaults write com.apple.screencapture location ~/Screenshots
 
-[[ ! -d ~/go ]] && mkdir ~/go
+echo "Creating ~/ folder structure..."
 [[ ! -d ~/github ]] && mkdir ~/github
 [[ ! -d ~/gitlab ]] && mkdir ~/gitlab
