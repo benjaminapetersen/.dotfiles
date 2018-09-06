@@ -1,0 +1,6 @@
+#!/bin/bash
+
+# Just creates a text file of a todo.  Quick and dirty.
+
+
+touch $HOME/Todos/"$*".txt

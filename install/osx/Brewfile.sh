@@ -31,14 +31,24 @@ brew install gnu-indent --with-default-names
 brew install gnu-which --with-default-names
 brew install gnu-grep --with-default-names 
 
-
+# well, it started alphabetical...
 brew install ack
 brew install ansible
 brew install bash-completion
-brew install docker 
 brew install ffmpeg
 brew install git
+# docker & container tools
+brew install docker 
+brew install kubernetes-cli
+brew install openshift-cli 
+# golang & tools
 brew install golang
+brew install dep
+# node & tools
+brew install node
+brew install npm
+brew install yarn 
+# other this and that
 brew install gzip
 brew install gpg
 brew install htop
@@ -48,19 +58,16 @@ brew install lynx
 brew install mercurial
 brew install mongodb #, restart_service: true
 brew install mas # handles app store purchase installation
-brew install node
-brew install npm
 brew install nginx
-brew install python
-brew install python3
-brew install pypy
 brew install the_silver_searcher
 brew install tmux
 brew install vim
-brew install yarn 
 brew install wget
 brew install watch 
-
+# python & tools
+brew install python
+brew install python3
+brew install pypy
 # re-link python to fix pip 
 brew unlink python
 brew link python
@@ -68,40 +75,53 @@ brew link python
 
 # CASKS
 # ----------------------------------
-brew cask install adium
-brew cask install atom
-brew cask install adobe-acrobat-reader
-brew cask install blue-jeans
-brew cask install brave 
-brew cask install colluquy # irc
+# super handy tools
 brew cask install caffeine
-brew cask install cyberduck 
 brew cask install divvy
+brew cask install spectacle
 brew cask install dropbox
-brew cask install evernote
-brew cask install firefox
-brew cask install filezilla
 brew cask install flux     # redshift at night.  no longer needed?
 brew cask install gifox
+brew cask install grammarly
+brew cask install kindle
+brew cask install spotify
+# adobe
+brew cask install adobe-acrobat-reader
+# ftp like the old school 
+brew cask install cyberduck 
+brew cask install filezilla
+# browsers
+brew cask install firefox
+brew cask install brave
+# virtual machines
+brew cask install vagrant
+brew cask install virtualbox
+# chats
+brew cask install adium
+brew cask install slack
+brew cask install blue-jeans
+brew cask install colluquy # irc
+brew cask install skype
+# notes apps
+brew cask install nvalt
+brew cask install simplenote 
+brew cask install evernote
+# Terminals, Editors, IDEs
 brew cask install goland
+brew cask install atom
+brew cask install iterm2
+brew cask install visual-studio-code
+brew cask install macvim
+# games
+brew cask install minecraft
+# google 
 brew cask install google-chrome
 brew cask install google-drive
 brew cask install google-hangouts
-brew cask install grammarly
-brew cask install iterm2
-brew cask install kindle
-brew cask install macvim
-brew cask install minecraft
-brew cask install minishift
+# containers & orchestration
+brew cask install docker
 brew cask install minikube 
-brew cask install nvalt
-brew cask install skype
-brew cask install simplenote 
-brew cask install slack
-brew cask install spotify
-brew cask install vagrant
-brew cask install virtualbox
-brew cask install visual-studio-code
+brew cask install minishift
 
 # FONTS
 # ----------------------------------
