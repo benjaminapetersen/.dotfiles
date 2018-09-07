@@ -34,5 +34,15 @@ esac
 echo "Symlinking configs..."
 ln -s ./bash_profile ~/.bash_profile
 
+echo "Symlinking ./bin/* files into $HOME/bin"
+# TODO: fix.  also, 
+#  use $HOME, not ~/
+#  use $PWD, maybe?
+# for BIN_FILE in `find ~/.dotfiles/bin`
+# do
+#   #[ -f "$BIN_FILE" ] && ln -s $BIN_FILE $HOME/bin/$BIN_FILE
+#   echo $BIN_FILE
+# done 
+
 echo "Install complete"
 echo "I suggest you `chmod -x on this file at this time`" 

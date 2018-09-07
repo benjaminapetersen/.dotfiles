@@ -116,4 +116,5 @@ gem install "${RUBY_GEMS}"
 
 # Manual Required
 echo "Finished. But some manual effort required:"
-echo "- Textual from the App store"
+echo "- Textual from the App store (if still desired)"
+echo "- Pixelmator from the App store (if still desired)"

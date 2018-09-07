@@ -6,3 +6,8 @@
 [core]
   editor = vim
   excludesfile = ~/.gitignore_global
+[merge]
+	tool = opendiff
+	tool = kdiff3
+[diff]
+	guitool = kdiff3

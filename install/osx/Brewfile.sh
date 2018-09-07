@@ -112,6 +112,8 @@ brew cask install atom
 brew cask install iterm2
 brew cask install visual-studio-code
 brew cask install macvim
+# git
+brew cask install kdiff3 # difftool. Prefer FileMerge tho
 # games
 brew cask install minecraft
 # google 
