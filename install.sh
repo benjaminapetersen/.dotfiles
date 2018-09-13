@@ -32,7 +32,8 @@ esac
 # echo $DOTFILES
 
 echo "Symlinking configs..."
-ln -s ./bash_profile ~/.bash_profile
+ln -s ./bash_profile $HOME/.bash_profile
+ln s ./bashrc $HOME/.bashrc
 
 echo "Symlinking ./bin/* files into $HOME/bin"
 # TODO: fix.  also, 
