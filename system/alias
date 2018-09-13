@@ -18,6 +18,7 @@ alias lsnice='ls -lhaG'
 
 # git
 # glg provides git log, with colors
+# TODO: put this in my gitconfig, shouldn't depend on whatever shell....
 alias gst='git status'
 alias gco='git checkout'
 alias gci='git commit'
