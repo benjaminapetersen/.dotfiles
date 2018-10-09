@@ -1,3 +1,90 @@
+# OLD INSTALL:
+# ----------------
+# # TODo: replace all of this with a Brewfile?
+# # echo "Installing formula/casks/taps with Homebrew..."
+# # brew tap Homebrew/bundle 
+# # brew bundle --file="$PWD/install/osx/Brewfile"
+
+# # Install GNU core utilities
+# # BSD user experience is poor :/
+# brew install coreutils
+# # --with-default-names will overwrite BSD, rather than install a prefixed version
+# brew install gnu-sed --with-default-names
+# brew install gnu-tar --with-default-names
+# brew install gnu-indent --with-default-names
+# brew install gnu-which --with-default-names
+# brew install gnu-grep --with-default-names 
+# # find,locate,updatedb,xargs.. g-prefixed, i guess?
+# brew install findutils --with-default-names
+
+# # latest bash (4?)
+# brew install bash 
+
+# # packages are formula
+# FORMULAS=(
+#   ack
+#   ansible
+#   bash-completion
+#   ffmpeg
+#   git
+#   golang
+#   gzip
+#   gpg
+#   htop
+#   imagemagick
+#   jq # json query
+#   lynx 
+#   mercurial
+#   node
+#   npm
+#   python
+#   python3
+#   pypy
+#   the_silver_searcher
+#   tmux
+#   vim
+#   yarn 
+#   wget
+#   watch 
+# )
+
+# echo "Installing formula with Homebrew..."
+# brew install "${FORMULAS}"
+
+# # re-link python to get pip 
+# brew unlink python && brew link python
+
+# # Casks are closed source binaries
+# CASKS=(
+#   colluquy # irc
+#   dropbox
+#   firefox
+#   flux     # redshift at night.  no longer needed?
+#   google-chrome
+#   google-drive
+#   google-hangouts
+#   iterm2
+#   macvim
+#   skype
+#   slack
+#   vagrant
+#   virtualbox
+# )
+
+# echo "Installing casks with Homebrew..."
+# brew cask install "${CASKS}"
+
+# echo "Installing fonts with Homebrew..."
+# FONTS=(
+#   font-roboto
+# )
+# brew cask install "${FONTS}"
+
+
+
+# NEW INSTALL:
+# ----------------
+
 # specify a directory to install
 cask_args appdir: '/Applications'
 
@@ -48,6 +135,15 @@ brew install dep
 brew install node
 brew install npm
 brew install yarn 
+# security 
+# pgp - pretty good privacy :)
+# this package is actually gnupg, which 
+# seems to be gpg2. 
+brew install gpg  
+brew install gpg2 
+brew install gpg-agent
+brew install pinentry-mac
+# brew install gpgtools - err, no longer exists?
 # other this and that
 brew install gzip
 brew install gpg
@@ -128,3 +224,9 @@ brew cask install minishift
 # FONTS
 # ----------------------------------
 brew cask font-roboto-mono
+
+
+# java, cuz, java?
+# java will prompt for password, this one 
+# should be handled differently perhaps
+brew cask install java 
