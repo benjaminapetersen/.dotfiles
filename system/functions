@@ -1,0 +1,6 @@
+#!/bin/bash 
+
+# explode the path into something readable...
+pathboom() {
+  echo "$PATH" | tr ':' '\n '
+}

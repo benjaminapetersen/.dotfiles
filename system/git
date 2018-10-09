@@ -1,0 +1,7 @@
+# NOTE: prefer .gitconfig in ~/.dotfiles/git/.gitconfig 
+
+# Git
+# ----------------------------------------
+# fix this, opendiff FilMerge vs kdiff3:
+# sudo xcode-select -switch /Applications/Xcode.app/Contents/Developer
+# git config --global merge.tool opendiff 

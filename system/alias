@@ -16,15 +16,28 @@ alias ~="cd ~"
 # listing
 alias lsnice='ls -lhaG' 
 
-# git
-# glg provides git log, with colors
-# TODO: put this in my gitconfig, shouldn't depend on whatever shell....
-alias gst='git status'
-alias gco='git checkout'
-alias gci='git commit'
-alias grb='git rebase'
-alias gbr='git branch'
-alias gad='git add -A'
-alias gpl='git pull'
-alias gpu='git push'
-alias glg='git log --date-order --all --graph --format="%C(green)%h%Creset %C(yellow)%an%Creset %C(blue bold)%ar%Creset %C(red bold)%d%Creset%s"'
+# Using gpg via homebrew
+# but it has a funky name, contemplating alias
+# alias gpg=gnupg
+alias gpg2=gnupg
+
+# tar 
+alias untar='tar -zxvf '
+
+# wget 
+# allows resume if something goes wrong, seems 
+# good default behavior :)
+alias wget='wget -c '
+
+# random password generation (20 chars)
+alias getpass='openssl rand -base64 20'
+
+# sha test file 
+alias sha='shasum -a 256'
+
+# ping goes on forever, pingcount <num> will ping 5,10,15,etc
+alias pingcount='ping -c '
+
+# IP address 
+alias machineip='ipconfig getifaddr en0'
+alias myip='machineip'

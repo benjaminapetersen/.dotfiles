@@ -1,0 +1,34 @@
+#!/bin/bash
+
+# bash functions cant return.  derp.
+#  https://www.linuxjournal.com/content/return-values-bash-functions
+# prompt quick fix
+# PS1='\w\$ '
+PS1_PREV=${PS1} # store backup
+# good enough for now.
+# this needs to be improved, but is usable
+# matthias has a nice prompt that looks like:
+#  name at laptop in pwd on gitbranch 
+#  orange at yellow in green on purple
+# export PS1='${RED}$(whoami)@$(hostname):${GREEN}$(pwd) > ${RESTORE}'
+# https://github.com/mathiasbynens/dotfiles.
+git_branch() {
+  git branch 2>/dev/null | grep '^*' | colrm 1 2
+}
+if_git_branch_on_branch() {
+  if [ -d .git ]; then
+    echo "${RESTORE} on${PURPLE} $(git_branch)"
+  fi
+}
+# todo: clean this up.
+# from https://stackoverflow.com/questions/1616678/bash-pwd-shortening
+# is a good quick fix, but I want to improve it.
+pwd_trunc () {
+    # expects 2 args. woot for bash & clarity...
+    local PRE= NAME="$1" LENGTH="$2";
+    [[ "$NAME" != "${NAME#$HOME/}" || -z "${NAME#$HOME}" ]] &&
+        PRE+='~' NAME="${NAME#$HOME}" LENGTH=$[LENGTH-1];
+    ((${#NAME}>$LENGTH)) && NAME="/...${NAME:$[${#NAME}-LENGTH+4]}";
+    echo "$PRE$NAME"
+}
+export PS1='${RED}$(whoami)@$(hostname) ${RESTORE}in${GREEN} $(pwd_trunc "$PWD" 40)$(if_git_branch_on_branch) ${RESTORE}\n$ '

@@ -1,0 +1,8 @@
+#!/bin/bash
+
+# Go
+# ----------------------------------------
+[[ -s "$HOME/.gvm/scripts/gvm" ]] && source "$HOME/.gvm/scripts/gvm"
+# cant remember if i need to monkey with $GOROOT :/
+export GOPATH=$HOME/go 
+export PATH="$PATH:${GOPATH}/bin:${GOROOT}/bin"

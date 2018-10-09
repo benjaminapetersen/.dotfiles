@@ -5,3 +5,7 @@
 export GOPATH=$HOME/go
 export PATH=$PATH:$GOPATH/bin
 export PATH=$HOME/bin:/usr/local/bin:$PATH
+
+# add some python tools
+# NOTE: this may need to be updated depending on python version installed...
+export PATH=$HOME/Library/Python/2.7/bin:$PATH 
