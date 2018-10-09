@@ -36,6 +36,10 @@ mkdir -p "${HOME}/Screenshots"
 mkdir -p "${HOME}/Documents/work/red_hat/receipts/submitted"
 mkdir -p "${HOME}/Documents/work/red_hat/receipts/to_submit"
 mkdir -p "${HOME}/Documents/home/receipts"
+# various handy hidden dirs that will contain
+# things that should not be committed to source control
+mkdir -p "${HOME}/.secrets"
+mkdir -p "${HOME}/.aws"
 
 # osx defaults
 # ---------------------------------------

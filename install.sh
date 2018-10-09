@@ -33,7 +33,7 @@ esac
 
 echo "Symlinking configs..."
 ln -s ./bash_profile $HOME/.bash_profile
-ln s ./bashrc $HOME/.bashrc
+ln -s ./bashrc $HOME/.bashrc
 
 echo "Symlinking ./bin/* files into $HOME/bin"
 # TODO: fix.  also, 
@@ -46,4 +46,4 @@ echo "Symlinking ./bin/* files into $HOME/bin"
 # done 
 
 echo "Install complete"
-echo "I suggest you `chmod -x on this file at this time`" 
+echo "I suggest you `chmod -x on this file at this time` to remove execute." 
