@@ -12,18 +12,29 @@ PS1_PREV=${PS1} # store backup
 #  orange at yellow in green on purple
 # export PS1='${RED}$(whoami)@$(hostname):${GREEN}$(pwd) > ${RESTORE}'
 # https://github.com/mathiasbynens/dotfiles.
-git_branch() {
+function parse_git_dirty() {
+  # NOTE: on `reload` this command seems to create a few errors on the cli:
+  # -bash: :echo: command not found
+  # a tad annoying, must revise
+	[[ $(git status 2> /dev/null | tail -n1) != *"working directory clean"* ]] && echo "*"
+}
+function parse_git_branch() {
+	git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e "s/* \(.*\)/\1$(parse_git_dirty)/"
+}
+
+function git_branch() {
   git branch 2>/dev/null | grep '^*' | colrm 1 2
 }
-if_git_branch_on_branch() {
+function if_git_branch_on_branch() {
   if [ -d .git ]; then
-    echo "${RESTORE} on${PURPLE} $(git_branch)"
+    echo "${RESTORE} on${PURPLE} $(git_branch)$(parse_git_dirty)"
   fi
 }
+
 # todo: clean this up.
 # from https://stackoverflow.com/questions/1616678/bash-pwd-shortening
 # is a good quick fix, but I want to improve it.
-pwd_trunc () {
+function pwd_trunc () {
     # expects 2 args. woot for bash & clarity...
     local PRE= NAME="$1" LENGTH="$2";
     [[ "$NAME" != "${NAME#$HOME/}" || -z "${NAME#$HOME}" ]] &&
@@ -31,4 +42,22 @@ pwd_trunc () {
     ((${#NAME}>$LENGTH)) && NAME="/...${NAME:$[${#NAME}-LENGTH+4]}";
     echo "$PRE$NAME"
 }
-export PS1='${RED}$(whoami)@$(hostname) ${RESTORE}in${GREEN} $(pwd_trunc "$PWD" 40)$(if_git_branch_on_branch) ${RESTORE}\n$ '
+PROMPT_SYMBOL="${LYELLOW}:)${RESTORE}"
+
+function prompt_symbol() {
+  # echo "${PROMPT_SYMBOL}"
+  printf "${FACE_GRIMMACE}"
+}
+
+function timestamp() {
+  date '+%A %B %d %Y %r'
+}
+
+# btw, there are some really fun things out there :)
+# https://github.com/twolfson/sexy-bash-prompt
+# very sensible
+# https://github.com/mathiasbynens/dotfiles/blob/master/.bash_prompt
+export PS1='${DARKGRAY}$(timestamp)${RESTORE}\n${RED}$(whoami)@$(hostname) ${RESTORE}in${GREEN} $(pwd_trunc "$PWD" 40)$(if_git_branch_on_branch) ${RESTORE}\n$(prompt_symbol) '
+export PS2="\[${yellow}\]→ \[${reset}\]";
+# export PS3=""
+# export PS4=""

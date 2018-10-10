@@ -2,3 +2,22 @@
 
 # Just creates a text file of a todo.  Quick and dirty.
 touch $HOME/Todos/"$*".txt
+
+COUNT=$(ls -lq $HOME/Todos | wc -l) 
+
+
+# normal 
+if [ "$COUNT" -eq "0" ]; then
+    # cant really be zero, since we just created one
+fi    
+
+if [ "$COUNT" -eq "1" ]; then
+    echo "You have 1 todo."
+fi 
+
+# arithmetic context
+if [ "$COUNT" -gt "1" ]; then 
+    echo "You have ${COUNT} todos."
+fi 
+
+echo "You have ${count} todos."

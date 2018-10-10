@@ -1,0 +1,6 @@
+#!/bin/bash 
+
+# cuz why not
+# https://apps.timwhitlock.info/emoji/tables/unicode
+FACE_WITH_STUCK_OUT_TONGUE_AND_WINKING_EYE="\xf0\x9f\x98\x9c"
+FACE_GRIMMACE="\xF0\x9F\x98\xAC"

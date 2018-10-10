@@ -1,3 +1,7 @@
+# cute greeting
+# ----------------------------------------
+# cowsay "Welcome $USER! It's now $(date '+%A %B %d %Y %r')"
+
 # Load system
 # ----------------------------------------
 # source all files in "system"
