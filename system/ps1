@@ -16,8 +16,13 @@ function parse_git_dirty() {
   # NOTE: on `reload` this command seems to create a few errors on the cli:
   # -bash: :echo: command not found
   # a tad annoying, must revise
-	[[ $(git status 2> /dev/null | tail -n1) != *"working directory clean"* ]] && echo "*"
+	[[ $(git status 2> /dev/null | tail -n1) != *"working directory clean"* ]] && printf "*"
 }
+
+function parse_git_dirty() {
+  printf "*"
+}
+
 function parse_git_branch() {
 	git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e "s/* \(.*\)/\1$(parse_git_dirty)/"
 }
