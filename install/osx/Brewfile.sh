@@ -198,6 +198,7 @@ brew cask install slack
 brew cask install blue-jeans
 brew cask install colluquy # irc
 brew cask install skype
+# brew cask install discord
 # notes apps
 brew cask install nvalt
 brew cask install simplenote 
@@ -210,6 +211,8 @@ brew cask install visual-studio-code
 brew cask install macvim
 # git
 brew cask install kdiff3 # difftool. Prefer FileMerge tho
+# brew cask install kaleidoscope
+# brew cask install ksdiff
 # games
 brew cask install minecraft
 # google 
