@@ -3,7 +3,7 @@
   name = Benjamin A. Petersen
   email = ben@benjaminapetersen.me 
   username = benjaminapetersen
-	signingkey = 33757D76E7B3A48D
+  signingkey = 33757D76E7B3A48D
 [core]
   editor = vim 
 [web]
@@ -30,10 +30,16 @@
   editor = vim
   excludesfile = ~/.gitignore_global
 [merge]
-	tool = opendiff
-	tool = kdiff3
+	tool = Kaleidoscope
 [diff]
-	guitool = kdiff3
+	tool = Kaleidoscope
+[mergetool "Kaleidoscope"]
+	prompt = false
+	cmd = ksdiff --merge --output \"$MERGED\" --base \"$BASE\" -- \"$LOCAL\" --snapshot \"$REMOTE\" --snapshot
+	trustexitcode = true
+[difftool "Kaleidoscope"]
+	prompt = false
+	cmd = ksdiff --partial-changeset --relative-path \"$MERGED\" -- \"$LOCAL\" \"$REMOTE\"
 [commit]
 	gpgsign = false
 [gpg]
@@ -240,3 +246,4 @@
   pretty = log --date-order --all --graph --format="%C(green)%h%Creset %C(yellow)%an%Creset %C(blue bold)%ar%Creset %C(red bold)%d%Creset%s"
   lastlog = show
   hist = log --pretty=format:"%h %ad | %s%d [%an]" --graph --date=short
+
