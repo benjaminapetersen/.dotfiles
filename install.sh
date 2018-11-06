@@ -1,6 +1,9 @@
 #!/bin/bash 
 
-
+# TODO:
+# it would be nice to make it easy to run "install" 
+# on specific things.  initial "install" for everything,
+# but later for updates, while tweaking stuff over time.
 ENVIRONMENT=$(uname -s)
 
 echo "Environment is: ${ENVIRONMENT}"
@@ -22,7 +25,7 @@ case $ENVIRONMENT in
     source ./install/linux.sh
     ;;
   *)
-    echo "We dont know"
+    echo "Environment ${ENVIRONMENT} is unknown. Cannot run install."
     ;;
 esac
 
