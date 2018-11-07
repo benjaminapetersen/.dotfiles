@@ -1,0 +1,25 @@
+#!/bin/bash
+
+# TODO: where should this live?
+# it doesn't really belong here.
+# its out of place, we don't want to mess with configuration variables
+# in this directory often.
+# openshift installer aws
+export CLUSTER_DIR=/Users/benjaminapetersen/openshift/installer/bpeterse
+export AWS_PROFILE=openshift-dev
+export OPENSHIFT_INSTALL_BASE_DOMAIN=devcluster.openshift.com
+export OPENSHIFT_INSTALL_CLUSTER_NAME=bpeterse
+export OPENSHIFT_INSTALL_EMAIL_ADDRESS=bpeterse@redhat.com
+export OPENSHIFT_INSTALL_PASSWORD=openshift4.0wins
+# export OPENSHIFT_INSTALL_PLATFORM='aws' - I comment this out, use the interactive, bc sometimes I run w/ libvirt
+export OPENSHIFT_INSTALL_PULL_SECRET_PATH=/Users/benjaminapetersen/.secrets/openshift_pull_secret.json
+# export OPENSHIFT_INSTALL_PULL_SECRET="$(cat /Users/benjaminapetersen/openshift/installer/pull-secret-one-liner)"
+export OPENSHIFT_INSTALL_SSH_PUB_KEY="$(cat /Users/benjaminapetersen/.ssh/id_rsa.pub)"
+# export OPENSHIFT_INSTALL_SSH_PUB_KEY_PATH==</Users/benjaminapetersen/.ssh/id_rsa.pub
+
+export OPENSHIFT_INSTALL_AWS_REGION='us-east-1'
+# export OPENSHIFT_INSTALL_AWS_REGION='us-east-1'
+
+
+
+

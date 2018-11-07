@@ -10,7 +10,13 @@ do
   [ -f "$SYSTEM_DOTFILE" ] && source "$SYSTEM_DOTFILE"
 done 
 
-# a func to list the dotfile configs, because sometimes its handy...
+addToPromptCommand lunchbreak
+addToPromptCommand update_tab_title
+addToPromptCommand set_gopath
+addToPromptCommand reload_history
+
+# a func to list the dotfile configs, because sometimes
+# I forget & need to print it out
 # ----------------------------------------
 listdotfiles() {
   echo "Loading configuration for:"
@@ -23,5 +29,4 @@ listdotfiles() {
 
 # Add .dotfiles/bin custom scripts 
 # ----------------------------------------
-export PATH="${PATH}:${HOME}/.dotfiles/bin"
-
+pathappend "${HOME}/.dotfiles/bin"

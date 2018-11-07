@@ -1,0 +1,11 @@
+#!/bin/bash
+
+# https://gist.github.com/phette23/5270658
+# multiple prompt command additions
+# and ensuring we only add things once.
+addToPromptCommand() {
+  if [[ ":$PROMPT_COMMAND:" != *":$1:"* ]]; then  
+    PROMPT_COMMAND="${PROMPT_COMMAND:+"$PROMPT_COMMAND;"}$1"  
+    # PROMPT_COMMAND="${PROMPT_COMMAND};${1}"
+  fi
+}

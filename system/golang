@@ -1,8 +1,55 @@
 #!/bin/bash
 
-# Go
+# dynamic gopath
+# bash command to output calculated GOPATH.
+calc_gopath() {
+  local dir="$PWD"
+
+  # we're going to walk up from the current directory to the root
+  while true; do
+
+    # if there's a '.gopath' file, use its contents as the GOPATH relative to
+    # the directory containing it.
+    if [ -f "$dir/.gopath" ]; then
+      ( cd "$dir";
+        # allow us to squash this behavior for cases we want to use vgo
+        if [ "$(cat .gopath)" != "" ]; then
+          cd "$(cat .gopath)";
+          echo "$PWD";
+        fi; )
+      return
+    fi
+
+    # if there's a 'src' directory, the parent of that directory is now the
+    # GOPATH
+    if [ -d "$dir/src" ]; then
+      echo "$dir"
+      return
+    fi
+
+    # we can't go further, so bail. we'll make the original PWD the GOPATH.
+    if [ "$dir" == "/" ]; then
+      echo "$PWD"
+      return
+    fi
+
+    # now we'll consider the parent directory
+    dir="$(dirname "$dir")"
+  done
+}
+
+
+# addToPromptCommand set_gopath() in .bashrc
+set_gopath() {
+    export GOPATH="$(calc_gopath)"
+}
+
+
+# Go variables
 # ----------------------------------------
 [[ -s "$HOME/.gvm/scripts/gvm" ]] && source "$HOME/.gvm/scripts/gvm"
 # cant remember if i need to monkey with $GOROOT :/
-export GOPATH=$HOME/go 
+# pathappend $HOME/go 
+# pathappend "${GOPATH}/bin"
+# pathappend "${GOROOT}/bin"
 export PATH="$PATH:${GOPATH}/bin:${GOROOT}/bin"

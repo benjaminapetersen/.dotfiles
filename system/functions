@@ -4,3 +4,21 @@
 pathboom() {
   echo "$PATH" | tr ':' '\n '
 }
+
+update_tab_title() {
+  # export PROMPT_COMMAND='echo -ne "\033];${PWD##*/}\007"; ':"$PROMPT_COMMAND";
+  echo -ne "\033]0;${PWD##*/}\007"
+}
+  
+# a test fn
+lunchbreak(){ 
+  if (( $(date +%H) == 12 && $(date +%M) < 59 )); then 
+    # and print colored \033[ starts the escape sequence 
+    # 5; is blinking attribute
+    # 2; means bold
+    # 31 says red
+    printf "\033[5;1;31mmind the lunch break\033[0m\n";
+  else
+    printf "\033[33mget to work!\033[0m\n"; 
+  fi; 
+}

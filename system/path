@@ -1,11 +1,65 @@
 #!/bin/bash
 
-# Path
-# -----------------
-export GOPATH=$HOME/go
-export PATH=$PATH:$GOPATH/bin
-export PATH=$HOME/bin:/usr/local/bin:$PATH
+# a good fn that ensures:
+# - path appends happen only once
+# - errors are handled.  this is important for debugging!
+# https://superuser.com/questions/39751/add-directory-to-path-if-its-not-already-there
+# PROBLEM:
+# On OSX, this will print a ton of errors like this:
+#    -bash: history: -:: invalid option
+#    history: usage: history [-c] [-d offset] [n] or history -awrn [filename] or history -ps arg [arg...]
+# Therefore, debugging needed.
+# pathappend() {
+#     for ARG in "$@"
+#     do
+#         if [ -d "$ARG" ]
+#         then
+#             if [[ ":$PATH:" != *":$ARG:"* ]]
+#             then
+#                 if ARGA=$(readlink -f "$ARG")           #notice me
+#                 then
+#                     if [[ ":$PATH:" != *":$ARGA:"* ]]
+#                     then
+#                         PATH="${PATH:+"$PATH:"}$ARGA"
+#                     fi
+#                 else
+#                     PATH="${PATH:+"$PATH:"}$ARG"
+#                 fi
+#             fi
+#         else
+#             printf "Error: %s is not a directory.\n" "$ARG" >&2
+#         fi
+#     done
+# }
 
+# # https://superuser.com/questions/39751/add-directory-to-path-if-its-not-already-there
+pathappend() {
+  for ARG in "$@"
+  do
+    if [ -d "$ARG" ] && [[ ":$PATH:" != *":$ARG:"* ]]; then
+        PATH="${PATH:+"$PATH:"}$ARG"
+    fi
+  done
+}
+# # https://superuser.com/questions/39751/add-directory-to-path-if-its-not-already-there
+pathprepend() {
+  for ((i=$#; i>0; i--)); 
+  do
+    ARG=${!i}
+    if [ -d "$ARG" ] && [[ ":$PATH:" != *":$ARG:"* ]]; then
+        PATH="$ARG${PATH:+":$PATH"}"
+    fi
+  done
+}
+
+# Path
+# TODO: move the USAGE of the above function out of this file.  
+# func def & func usage should not be in the same place.
+# -----------------
+pathappend $HOME/bin
+pathappend $HOME/go 
+pathappend $GOPATH/bin
+pathappend /usr/local/bin
 # add some python tools
 # NOTE: this may need to be updated depending on python version installed...
-export PATH=$HOME/Library/Python/2.7/bin:$PATH 
+pathappend $HOME/Library/Python/2.7/bin
