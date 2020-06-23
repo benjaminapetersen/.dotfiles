@@ -10,7 +10,7 @@ do
   [ -f "$SYSTEM_DOTFILE" ] && source "$SYSTEM_DOTFILE"
 done 
 
-addToPromptCommand lunchbreak
+# addToPromptCommand lunchbreak
 addToPromptCommand update_tab_title
 addToPromptCommand set_gopath
 addToPromptCommand reload_history
@@ -30,3 +30,8 @@ listdotfiles() {
 # Add .dotfiles/bin custom scripts 
 # ----------------------------------------
 pathappend "${HOME}/.dotfiles/bin"
+
+# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
+export PATH="$PATH:$HOME/.rvm/bin"
+source <(kubectl completion bash)
+

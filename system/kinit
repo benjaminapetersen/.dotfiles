@@ -1,0 +1,21 @@
+#!/bin/bash
+
+# a bit about kinit
+# https://ldapwiki.com/wiki/Kinit
+# configuring for Red Hat
+# https://mojo.redhat.com/docs/DOC-75918
+# Firefox for GSSAPI integration: 
+#   visit about:config in browser
+#   under "network.negotiate-auth.trusted-uris" add .redhat.com
+# Fedora Chrome for GSSAPI integration:
+#       mkdir -p /etc/opt/chrome/policies/managed
+#       /etc/opt/chrome/policies/managed/redhat-corp.json
+#       { "AuthServerWhitelist": "*.redhat.com" }
+# OSX Chrome for GSSAPI integration:
+#   defaults write com.google.Chrome AuthServerWhitelist "*.redhat.com"
+#   visit chrome://policy in browser
+#   if error, try:
+#     defaults delete com.google.Chrome
+#     defaults write com.google.Chrome AuthServerWhitelist "*.redhat.com"
+echo "Renewing kerberos (kinit) using ~/.secrets/kinit-password-file for GSSAPI in the browser"
+kinit --password-file="${HOME}/.secrets/kinit-password-file" -p bpeterse@REDHAT.COM

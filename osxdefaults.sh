@@ -75,5 +75,7 @@ defaults write com.apple.finder showRemovableMediaOnDesktop -bool true
 # Disable "natural" scroll
 # defaults write NSGlobalDomain com.apple.swipescrolldirection -bool false
 
-
+# kerberos for RedHat in Chrome 
+defaults write com.google.Chrome AuthNegotiateDelegateWhitelist "*.redhat.com"
+defaults write com.google.Chrome AuthServerWhitelist "*.redhat.com"
 

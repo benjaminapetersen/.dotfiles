@@ -4,6 +4,9 @@
 # multiple prompt command additions
 # and ensuring we only add things once.
 addToPromptCommand() {
+  # if we need to debug, can log what we are adding.
+  # echo "Adding ${1} to prompt"
+
   if [[ ":$PROMPT_COMMAND:" != *":$1:"* ]]; then  
     PROMPT_COMMAND="${PROMPT_COMMAND:+"$PROMPT_COMMAND;"}$1"  
     # PROMPT_COMMAND="${PROMPT_COMMAND};${1}"

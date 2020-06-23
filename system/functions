@@ -9,6 +9,13 @@ update_tab_title() {
   # export PROMPT_COMMAND='echo -ne "\033];${PWD##*/}\007"; ':"$PROMPT_COMMAND";
   echo -ne "\033]0;${PWD##*/}\007"
 }
+
+# if one wants to customize the tab title for some reason
+# use:  custom_tab_title "I want a pony"
+# TODO: enable this as an override to the other automatic tab title fns
+function custom_tab_title() {
+    echo -ne "\033]0;"$*"\007"
+}
   
 # a test fn
 lunchbreak(){ 
@@ -22,3 +29,38 @@ lunchbreak(){
     printf "\033[33mget to work!\033[0m\n"; 
   fi; 
 }
+
+
+function sha256sum() { 
+  openssl sha256 "$@" | awk '{print $2}'; 
+}
+
+export -f sha256sum
+
+
+# change director to origin
+# set my gopath to origin
+# set go verion to what it needs
+# PATH="_output/blah/blah/binary/thing:$PATH"
+# 
+# cdorigin() {
+
+# }
+# alias cdo=cdorigin
+
+# # same as above...
+# cdconsoleoperator() {
+#   cd $HOME/gopaths/consoleoperator/src/github.com/openshift/console-operator
+#   export PATH="_output/local/bin/darwin/amd64:${PATH}"
+#   # TODO: what go version? 
+# }
+
+# alias cdco=cdconsoleoperator
+
+# cdexampleoperator() {
+
+# }
+
+# alias cdeo=cdexampleoperator
+
+

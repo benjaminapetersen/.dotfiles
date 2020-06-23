@@ -3,7 +3,7 @@
   name = Benjamin A. Petersen
   email = ben@benjaminapetersen.me 
   username = benjaminapetersen
-  signingkey = 33757D76E7B3A48D
+	signingkey = A4CA76FBEB4A76A1E7EE151B33757D76E7B3A48D
 [core]
   editor = vim 
 [web]
@@ -28,7 +28,7 @@
   user = benjaminapetersen
 [core]
   editor = vim
-  excludesfile = ~/.gitignore_global
+	excludesfile = /Users/benjaminapetersen/.config/git/ignore
 [merge]
 	tool = Kaleidoscope
 [diff]
