@@ -79,3 +79,5 @@ defaults write com.apple.finder showRemovableMediaOnDesktop -bool true
 defaults write com.google.Chrome AuthNegotiateDelegateWhitelist "*.redhat.com"
 defaults write com.google.Chrome AuthServerWhitelist "*.redhat.com"
 
+# Need to restart the finder for these to take effect
+killall Finder
