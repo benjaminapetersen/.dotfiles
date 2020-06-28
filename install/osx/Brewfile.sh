@@ -188,7 +188,7 @@ brew cask install cyberduck
 brew cask install filezilla
 # browsers
 brew cask install firefox
-brew cask install brave
+brew cask install brave-browser
 # virtual machines
 brew cask install vagrant
 brew cask install virtualbox
